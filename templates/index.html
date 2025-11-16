@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Фильмы и отзывы</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .movie {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .rating {
+            color: #ff6b00;
+            font-weight: bold;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-btn {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .add-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🎬 Список фильмов</h1>
+        <a href="/add-movie" class="add-btn">➕ Добавить фильм</a>
+    </div>
+
+    <div id="movies-list">
+        {% for movie in movies %}
+        <div class="movie">
+            <h2>{{ movie.title }}</h2>
+            <p><strong>Режиссер:</strong> {{ movie.director }}</p>
+            <p><strong>Рейтинг:</strong> <span class="rating">{{ movie.avg_rating }}/10</span></p>
+            <p><strong>Отзывов:</strong> {{ movie.review_count }}</p>
+            <p><strong>Год:</strong> {{ movie.release_year }} | <strong>Жанр:</strong> {{ movie.genre }}</p>
+            <a href="/movies/{{ movie.id }}">📖 Подробнее и отзывы</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

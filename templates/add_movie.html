@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Добавить фильм</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .form-container {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/">← Назад к списку фильмов</a>
+
+    <div class="form-container">
+        <h1>🎬 Добавить новый фильм</h1>
+
+        <form method="post" action="/add-movie">
+            <div class="form-group">
+                <label class="required">Название фильма:</label>
+                <input type="text" name="title" placeholder="Введите название фильма" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Режиссер:</label>
+                <input type="text" name="director" placeholder="Введите имя режиссера" required>
+            </div>
+
+            <div class="form-group">
+                <label>Год выпуска:</label>
+                <input type="number" name="release_year" placeholder="2024" min="1888" max="2100">
+            </div>
+
+            <div class="form-group">
+                <label>Жанр:</label>
+                <select name="genre">
+                    <option value="">Выберите жанр</option>
+                    <option value="Боевик">Боевик</option>
+                    <option value="Комедия">Комедия</option>
+                    <option value="Драма">Драма</option>
+                    <option value="Фантастика">Фантастика</option>
+                    <option value="Ужасы">Ужасы</option>
+                    <option value="Мелодрама">Мелодрама</option>
+                    <option value="Триллер">Триллер</option>
+                    <option value="Криминал">Криминал</option>
+                    <option value="Приключения">Приключения</option>
+                    <option value="Анимация">Анимация</option>
+                    <option value="Документальный">Документальный</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Описание:</label>
+                <textarea name="description" placeholder="Описание фильма..." rows="5"></textarea>
+            </div>
+
+            <button type="submit">➕ Добавить фильм</button>
+        </form>
+    </div>
+</body>
+
+</html>
